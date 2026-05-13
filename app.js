@@ -29,7 +29,7 @@ const ACCEPTED_ORIGINS = [
     'http://localhost:1234',
     'https://movies.com',
     'https://midu.dev',
-    'https://movies-api-v2.onrender.com'
+    'https://movies-api-v2-1.onrender.com'
 ]
 
 const ACCEPTED_DEV_ORIGIN_PATTERNS = [
