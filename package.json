@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Clase 3 - Desarrollando una API con Express.js y Solucion de CORS - curso de Node.js de midudev",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon --legacy-watch --watch app.js --watch schemas --watch movies.json app.js",

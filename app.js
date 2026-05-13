@@ -6,26 +6,49 @@
 
 
 /** -----  import express  ----- */
-const express = require('express'); // require -> commonJS
+import express from 'express';
 
 /** -----  import path  ----- */
-const path = require('node:path');
+import { join, dirname } from 'node:path';
+
+/** -----  import url  ----- */
+import { fileURLToPath } from 'node:url';
 
 /** -----  import crypto  ----- */
-const crypto = require('node:crypto'); // módulo nativo de Node.js para generar UUIDs
+import { randomUUID } from 'node:crypto'; // módulo nativo de Node.js para generar UUIDs
 
 /** -----  import cors  ----- */
-const cors = require('cors'); // middleware para habilitar CORS
+import cors from 'cors'; // middleware para habilitar CORS
+
+/** -----  import validation functions  ----- */
+import { validateMovie, validatePartialMovie } from './schemas/movies.js';
+
+/** -----  import createRequire para importar JSON  ----- */
+import { createRequire } from 'node:module';
+
+
+/**  -----  require function para importar JSON  ----- */
+const require = createRequire(import.meta.url);
+
+/** -----  create express app  ----- */
+const app = express();
+
+/** -----  __dirname equivalente en ESM  ----- */
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 /** @type {import('./types/movies.js').Movies} - colección de peliculas */
 const movies = require('./movies.json');
 
-/** -----  import validation functions  ----- */
-const { validateMovie, validatePartialMovie } = require('./schemas/movies');
 
-
-/** -----  create express app  ----- */
-const app = express();
+/**
+ * --------------------------------
+ * -----  `ACCEPTED_ORIGINS`  -----
+ * --------------------------------
+ * - Lista de orígenes permitidos para CORS.
+ * - Se utiliza para validar el origen de las solicitudes entrantes y permitir solo aquellas que provienen de orígenes confiables.
+ * - Incluye tanto orígenes de producción como patrones para orígenes locales comunes en desarrollo.
+ */
 
 const ACCEPTED_ORIGINS = [
     'http://localhost:8080',
@@ -34,6 +57,15 @@ const ACCEPTED_ORIGINS = [
     'https://midu.dev',
     'https://movies-api-v2-1.onrender.com'
 ]
+
+
+/**
+ * -------------------------
+ * -----  `ACCEPTED_DEV_ORIGIN_PATTERNS`  -----
+ * -------------------------
+ * - Lista de patrones de expresiones regulares para orígenes locales comunes en desarrollo.
+ * - Permite aceptar solicitudes desde cualquier puerto en localhost o 127.0.0.1.
+ */
 
 const ACCEPTED_DEV_ORIGIN_PATTERNS = [
     /^http:\/\/localhost:\d+$/,
@@ -77,8 +109,8 @@ app.disable('x-powered-by');
 app.use(express.json());
 
 //  -----  Servir archivos estáticos desde las carpetas web y assets  -----
-app.use(express.static(path.join(__dirname, 'web')));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(express.static(join(__dirname, 'web')));
+app.use('/assets', express.static(join(__dirname, 'assets')));
 
 
 
@@ -162,7 +194,7 @@ app.post('/movies', (req, res) => {
 
     /** @type {import('./types/movies.js').Movie} */
     const newMovie = {
-        id: crypto.randomUUID(), // uuid v4
+        id: randomUUID(), // uuid v4
         ...result.data
     };
 

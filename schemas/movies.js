@@ -5,7 +5,9 @@
 */
 
 
-const z = require('zod');
+import { z } from 'zod';
+
+
 
 /**
  * ---------------------------  
@@ -55,9 +57,8 @@ const movieSchema = z.object({
  * - Valida un objeto de entrada contra el esquema `movieSchema`.
  * @param {unknown} input - El objeto a validar, típicamente el cuerpo de una solicitud HTTP.
  */
-function validateMovie(input) {
-    return movieSchema.safeParse(input);
-}
+export const validateMovie = (input) => movieSchema.safeParse(input);
+
 
 
 /**
@@ -68,12 +69,4 @@ function validateMovie(input) {
  * - Ideal para actualizaciones parciales (PATCH).
  * @param {unknown} input - El objeto a validar, típicamente el cuerpo de una solicitud HTTP.
  */
-function validatePartialMovie(input) {
-    return movieSchema.partial().safeParse(input);
-}
-
-
-module.exports = {
-    validateMovie,
-    validatePartialMovie
-}
+export const validatePartialMovie = (input) => movieSchema.partial().safeParse(input);
