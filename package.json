@@ -1,0 +1,35 @@
+{
+  "name": "03-movies-api-v2",
+  "version": "1.0.0",
+  "description": "Clase 3 - Desarrollando una API con Express.js y Solucion de CORS - curso de Node.js de midudev",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --legacy-watch --watch app.js --watch schemas --watch movies.json app.js",
+    "kill:port": "sh -c 'PORT=${PORT:-1234}; pids=$(lsof -t -nP -iTCP:$PORT -sTCP:LISTEN); if [ -n \"$pids\" ]; then kill $pids; else echo \"No process found on port $PORT\"; fi'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "api",
+    "cors",
+    "midudev"
+  ],
+  "author": "AntonyDev",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "nodemon": "^3.1.10"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "5.2.1",
+    "zod": "^4.3.6"
+  }
+}

@@ -1,0 +1,44 @@
+###  *  -------------------------------
+###  *  ---------- api.http  ----------
+###  *  -------------------------------
+
+
+###  *  API con Express
+GET http://localhost:1234/
+
+
+###  *  GET  -  Recuperar todas las peliculas
+GET http://localhost:1234/movies
+
+
+###  *  GET  -  Recuperar una pelicula por su id
+GET http://localhost:1234/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+
+
+###  *  GET  -  Recuperar todas las peliculas por un genero
+GET http://localhost:1234/movies?genre=action
+
+
+
+###  *  POST  -  Crear una nueva pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "The Matrix",
+    "year": 1999,
+    "director": "Lana Wachowski, Lilly Wachowski",
+    "duration": 136,
+    "poster": "https://m.media-amazon.com/images/I/51EG732BV3L.jpg",
+    "genre": ["Action", "Sci-Fi"],
+    "rate": 8.7
+}
+
+
+###  *  PATCH  -  Actualizar una pelicula por su id
+PATCH http://localhost:1234/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+Content-Type: application/json
+
+
+###  *  DELETE  -  Eliminar una pelicula por su id
+DELETE http://localhost:1234/movies/241bf55d-b649-4109
