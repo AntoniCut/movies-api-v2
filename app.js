@@ -8,6 +8,9 @@
 /** -----  import express  ----- */
 const express = require('express'); // require -> commonJS
 
+/** -----  import path  ----- */
+const path = require('node:path');
+
 /** -----  import crypto  ----- */
 const crypto = require('node:crypto'); // módulo nativo de Node.js para generar UUIDs
 
@@ -74,8 +77,8 @@ app.disable('x-powered-by');
 app.use(express.json());
 
 //  -----  Servir archivos estáticos desde las carpetas web y assets  -----
-app.use('/web', express.static('web'));
-app.use('/assets', express.static('assets'));
+app.use(express.static(path.join(__dirname, 'web')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 
 
