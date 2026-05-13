@@ -31,6 +31,7 @@ if (!main)
  */
 
 const renderMovieCard = (movie) => {
+    
     const movieRate = typeof movie.rate === 'number'
         ? movie.rate.toFixed(1)
         : 'Sin nota'

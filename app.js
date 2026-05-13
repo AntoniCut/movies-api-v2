@@ -45,7 +45,7 @@ app.use(express.static(join(__dirname, 'web')));
 app.use('/assets', express.static(join(__dirname, 'assets')));
 
 //  -----  Usar el router de movies  -----
-app.use(moviesRouter);
+app.use('/movies', moviesRouter);
 
 
 /*
