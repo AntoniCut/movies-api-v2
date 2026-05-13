@@ -73,6 +73,10 @@ app.disable('x-powered-by');
 //  -----  Middleware para parsear el cuerpo de las solicitudes como JSON  -----
 app.use(express.json());
 
+//  -----  Servir archivos estáticos desde las carpetas web y assets  -----
+app.use('/web', express.static('web'));
+app.use('/assets', express.static('assets'));
+
 
 
 /*  

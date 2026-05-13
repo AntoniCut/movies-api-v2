@@ -9,7 +9,9 @@
 
 
 /** ----- URL de la API de películas ----- */
-const moviesApiUrl = 'http://localhost:1234/movies';
+const moviesApiUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:1234/movies'
+    : 'https://movies-api-v2-1.onrender.com/movies';
 
 /** @type {HTMLMainElement | null} - Elemento principal donde se mostrarán las películas */
 const main = document.querySelector('main');
