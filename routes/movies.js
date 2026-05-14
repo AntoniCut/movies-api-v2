@@ -6,22 +6,9 @@
 
 
 import { Router } from 'express';
-
-/** -----  import crypto  ----- */
-import { randomUUID } from 'node:crypto';
-
-/** -----  import createRequire para importar JSON  ----- */
-import { createRequire } from 'node:module';
-
-/** -----  import validation functions  ----- */
 import { validateMovie, validatePartialMovie } from '../schemas/movies.js';
+import { MovieModel } from 'models/movie.js';
 
-
-/** -----  require para importar JSON  ----- */
-const require = createRequire(import.meta.url);
-
-/** @type {import('../types/movies.js').Movies} - colección de peliculas */
-const movies = require('../movies.json');
 
 /** -----  create express router  ----- */
 export const moviesRouter = Router();
@@ -36,20 +23,23 @@ export const moviesRouter = Router();
     *  ---------------------------------------------------------------------------------
  */
 
-moviesRouter.get('/', (req, res) => {
+moviesRouter.get('/', async (req, res) => {
 
-    const { genre } = req.query;
+    try {
+        
+        /** @type {{ genre?: string }} - Parámetros de consulta */
+        const { genre } = req.query;
 
-    if (genre && typeof genre === 'string') {
+        /**  -----  recuperar todas las películas ----- */
+        const movies = await MovieModel.getAll({ genre });
 
-        const filteredMovies = movies.filter(
-            movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
-        );
+        res.json(movies);
 
-        return res.json(filteredMovies)
+    } 
+    
+    catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
     }
-
-    res.json(movies);
 
 });
 
@@ -61,17 +51,25 @@ moviesRouter.get('/', (req, res) => {
     *  ----------------------------------------------------------------------------------------------------
  */
 
-moviesRouter.get('/:id', (req, res) => {      //*  ==>  path-to-regexp
+moviesRouter.get('/:id', async (req, res) => {      //*  ==>  path-to-regexp
 
-    const { id } = req.params;
+    try {
+        
+        const { id } = req.params;
 
-    const movie = movies.find(movie => movie.id === id);
+        /** -----  recuperar película por id  ----- */
+        const movie = await MovieModel.getById({ id });
 
+        if (movie)
+            return res.json(movie);
 
-    if (movie)
-        return res.json(movie);
+        res.status(404).json({ message: 'Movie not found' });
 
-    res.status(404).json({ message: 'Movie not found' });
+    } 
+    
+    catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
 
 });
 
@@ -83,29 +81,31 @@ moviesRouter.get('/:id', (req, res) => {      //*  ==>  path-to-regexp
     *  --------------------------------------------------------------------------------------
 */
 
-moviesRouter.post('/', (req, res) => {
+moviesRouter.post('/', async (req, res) => {
 
+    try {
+        
+        /** -----  Result of validation  ----- */
+        const result = validateMovie(req.body);
 
-    /** -----  Result of validation  ----- */
-    const result = validateMovie(req.body);
+        if (result.error) {
+            // 422 Unprocessable Entity
+            return res.status(400).json({ error: JSON.parse(result.error.message) });
+        }
 
-    if (result.error) {
-        // 422 Unprocessable Entity
-        return res.status(400).json({ error: JSON.parse(result.error.message) });
+        /**
+         *  - Nueva película creada
+         * @type {import('../types/movies.js').Movie}
+         */
+        const newMovie = await MovieModel.create(result.data);
+
+        res.status(201).json(newMovie);
+
+    } 
+    
+    catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
     }
-
-
-    /** @type {import('../types/movies.js').Movie} */
-    const newMovie = {
-        id: randomUUID(), // uuid v4
-        ...result.data
-    };
-
-    // Esto no sería REST, porque estamos guardando
-    // el estado de la aplicación en memoria
-    movies.push(newMovie);
-
-    res.status(201).json(newMovie);
 
 });
 
@@ -117,31 +117,31 @@ moviesRouter.post('/', (req, res) => {
     *  ------------------------------------------------------------------------------------------
 */
 
-moviesRouter.patch('/:id', (req, res) => {
+moviesRouter.patch('/:id', async (req, res) => {
 
-    const result = validatePartialMovie(req.body);
+    try {
+        
+        const result = validatePartialMovie(req.body);
 
-    if (!result.success) {
-        return res.status(400).json({ error: JSON.parse(result.error.message) });
+        if (!result.success) {
+            return res.status(400).json({ error: JSON.parse(result.error.message) });
+        }
+
+        const { id } = req.params;
+
+        /** -----  Actualizar película por id  ----- */
+        const updateMovie = await MovieModel.update({ id, input: result.data });
+
+        if (!updateMovie)
+            return res.status(404).json({ message: 'Movie not found' });
+
+        return res.json(updateMovie);
+    } 
+    
+    catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
     }
 
-    const { id } = req.params;
-    const movieIndex = movies.findIndex(movie => movie.id === id);
-
-    if (movieIndex === -1) {
-        return res.status(404).json({ message: 'Movie not found' });
-    }
-
-    // Esto no sería REST, porque estamos guardando
-    // el estado de la aplicación en memoria
-    const updateMovie = {
-        ...movies[movieIndex],
-        ...result.data
-    }
-
-    movies[movieIndex] = updateMovie;
-
-    return res.json(updateMovie);
 });
 
 
@@ -152,17 +152,24 @@ moviesRouter.patch('/:id', (req, res) => {
     * ---------------------------------------------------------------------------------------------------
 */
 
-moviesRouter.delete('/:id', (req, res) => {
+moviesRouter.delete('/:id', async (req, res) => {
 
-    const { id } = req.params
+    try {
+        
+        const { id } = req.params;
 
-    const movieIndex = movies.findIndex(movie => movie.id === id)
+        /** -----  Eliminar película por id  ----- */
+        const result = await MovieModel.delete({ id });
 
-    if (movieIndex === -1)
-        return res.status(404).json({ message: 'Movie not found' })
+        if (!result)
+            return res.status(404).json({ message: 'Movie not found' });
 
+        return res.json({ message: 'Movie deleted' });
 
-    movies.splice(movieIndex, 1)
+    } 
+    
+    catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
 
-    return res.json({ message: 'Movie deleted' })
-})
+});

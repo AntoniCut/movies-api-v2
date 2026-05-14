@@ -48,6 +48,7 @@ app.use('/assets', express.static(join(__dirname, 'assets')));
 app.use('/movies', moviesRouter);
 
 
+
 /*
     *  ---------------------------------------------------------------------------------
     *  -----  Configurar el servidor para que escuche en el puerto 5678 y mostrar  -----
