@@ -265,3 +265,281 @@ main {
         padding: 0.35rem 0.4rem 0.35rem 0;
     }
 }
+
+/*  -----  Botón de crear película en el hero  -----  */
+
+.movies-app__create-btn {
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.75rem;
+    border: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(16, 185, 129, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movies-app__create-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(16, 185, 129, 0.34);
+}
+
+.movies-app__create-btn:active {
+    transform: translateY(0);
+}
+
+/*  -----  Acciones de la tarjeta (editar y eliminar)  -----  */
+
+.movie-card__actions {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.movie-card__edit {
+    flex: 1;
+    border: 0;
+    border-radius: 16px;
+    padding: 0.9rem 1.25rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(59, 130, 246, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card__edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(59, 130, 246, 0.34);
+}
+
+.movie-card__edit:active {
+    transform: translateY(0);
+}
+
+.movie-card__delete {
+    flex: 1;
+    width: auto;
+}
+
+/*  -----  Modal  -----  */
+
+.movie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.movie-modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.movie-modal__content {
+    position: relative;
+    background: var(--surface-strong);
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.3);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+.movie-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.movie-modal__title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #0f172a;
+}
+
+.movie-modal__close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.movie-modal__close:hover {
+    background: rgba(15, 23, 42, 0.15);
+}
+
+/*  -----  Formulario  -----  */
+
+.movie-form {
+    padding: 0 1.5rem 1.5rem;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.movie-form__group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.movie-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.movie-form__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.movie-form__input {
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+    font-size: 1rem;
+    color: #0f172a;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-form__input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.movie-form__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.movie-form__genre-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 999px;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.movie-form__genre-label:has(input:checked) {
+    background: linear-gradient(135deg, #fde68a, var(--accent-soft));
+    border-color: #f97316;
+}
+
+.movie-form__genre-label input {
+    display: none;
+}
+
+.movie-form__genre-label span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.movie-form__error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-height: 1.2rem;
+}
+
+.movie-form__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 0.5rem;
+}
+
+.movie-form__cancel {
+    padding: 0.85rem 1.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 12px;
+    background: transparent;
+    color: #0f172a;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.movie-form__cancel:hover {
+    background: rgba(15, 23, 42, 0.05);
+}
+
+.movie-form__submit {
+    padding: 0.85rem 1.5rem;
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-form__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(16, 185, 129, 0.28);
+}
+
+.movie-form__submit:active {
+    transform: translateY(0);
+}
+
+/*  -----  Responsive para el modal  -----  */
+
+@media (max-width: 640px) {
+    .movie-modal__content {
+        max-height: 95vh;
+        border-radius: 20px;
+    }
+    
+    .movie-form__row {
+        grid-template-columns: 1fr;
+    }
+    
+    .movie-card__actions {
+        flex-direction: column;
+    }
+}

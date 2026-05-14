@@ -61,6 +61,10 @@ export const corsMiddleware = (
 
 ) => cors({
 
+    /**
+     * @param {string | undefined} origin
+     * @param {(err: Error | null, allow?: boolean) => void} callback
+     */
     origin: (origin, callback) => {
 
         //  -----  Si no hay origen (por ejemplo, en solicitudes desde Postman), permitir la solicitud  -----

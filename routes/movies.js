@@ -7,7 +7,7 @@
 
 import { Router } from 'express';
 import { validateMovie, validatePartialMovie } from '../schemas/movies.js';
-import { MovieModel } from 'models/movie.js';
+import { MovieModel } from '../models/movie.js';
 
 
 /** -----  create express router  ----- */
