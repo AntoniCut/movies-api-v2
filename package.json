@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --legacy-watch --watch app.js --watch schemas --watch movies.json app.js",
+    "dev": "nodemon --legacy-watch --watch app.js --watch controllers --watch middlewares --watch models --watch routes --watch schemas --watch movies.json app.js",
     "kill:port": "sh -c 'PORT=${PORT:-1234}; pids=$(lsof -t -nP -iTCP:$PORT -sTCP:LISTEN); if [ -n \"$pids\" ]; then kill $pids; else echo \"No process found on port $PORT\"; fi'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +19,7 @@
   ],
   "author": "AntonyDev",
   "license": "ISC",
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@11.2.2+sha512.36e6621fad506178936455e70247b8808ef4ec25797a9f437a93281a020484e2607f6a469a22e982987c3dbb8866e3071514ab10a4a1749e06edcd1ec118436f",
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
@@ -32,6 +32,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "5.2.1",
+    "mongodb": "^7.2.0",
     "zod": "^4.3.6"
   }
 }

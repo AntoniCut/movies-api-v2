@@ -1,0 +1,492 @@
+[
+  {
+    "id": "dcdd0fad-a94c-4810-8acc-5f108d3b18c3",
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "director": "Frank Darabont",
+    "duration": 142,
+    "poster": "https://i.ebayimg.com/images/g/4goAAOSwMyBe7hnQ/s-l1200.webp",
+    "genre": ["Drama"],
+    "rate": 9.3
+  },
+  {
+    "id": "c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf",
+    "title": "The Dark Knight",
+    "year": 2008,
+    "director": "Christopher Nolan",
+    "duration": 152,
+    "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
+    "genre": ["Action", "Crime", "Drama"],
+    "rate": 9.0
+  },
+  {
+    "id": "5ad1a235-0d9c-410a-b32b-220d91689a08",
+    "title": "Inception",
+    "year": 2010,
+    "director": "Christopher Nolan",
+    "duration": 148,
+    "poster": "https://m.media-amazon.com/images/I/91Rc8cAmnAL._AC_UF1000,1000_QL80_.jpg",
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rate": 8.8
+  },
+  {
+    "id": "241bf55d-b649-4109-af7c-0e6890ded3fc",
+    "title": "Pulp Fiction",
+    "year": 1994,
+    "director": "Quentin Tarantino",
+    "duration": 154,
+    "poster": "https://www.themoviedb.org/t/p/original/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
+    "genre": ["Crime", "Drama"],
+    "rate": 8.9
+  },
+  {
+    "id": "9e6106f0-848b-4810-a11a-3d832a5610f9",
+    "title": "Forrest Gump",
+    "year": 1994,
+    "director": "Robert Zemeckis",
+    "duration": 142,
+    "poster": "https://i.ebayimg.com/images/g/qR8AAOSwkvRZzuMD/s-l1600.jpg",
+    "genre": ["Drama", "Romance"],
+    "rate": 8.8
+  },
+  {
+    "id": "7e3fd5ab-60ff-4ae2-92b6-9597f0308d1",
+    "title": "Gladiator",
+    "year": 2000,
+    "director": "Ridley Scott",
+    "duration": 155,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Drama"],
+    "rate": 8.5
+  },
+  {
+    "id": "c906673b-3948-4402-ac7f-73ac3a9e3105",
+    "title": "The Matrix",
+    "year": 1999,
+    "director": "Lana Wachowski",
+    "duration": 136,
+    "poster": "https://i.ebayimg.com/images/g/QFQAAOSwAQpfjaA6/s-l1200.jpg",
+    "genre": ["Action", "Sci-Fi"],
+    "rate": 8.7
+  },
+  {
+    "id": "b6e03689-cccd-478e-8565-d92f40813b13",
+    "title": "Interstellar",
+    "year": 2014,
+    "director": "Christopher Nolan",
+    "duration": 169,
+    "poster": "https://m.media-amazon.com/images/I/91obuWzA3XL._AC_UF1000,1000_QL80_.jpg",
+    "genre": ["Adventure", "Drama", "Sci-Fi"],
+    "rate": 8.6
+  },
+  {
+    "id": "aa391090-b938-42eb-b520-86ea0aa3917b",
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "director": "Peter Jackson",
+    "duration": 201,
+    "poster": "https://i.ebayimg.com/images/g/0hoAAOSwe7peaMLW/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Drama"],
+    "rate": 8.9
+  },
+  {
+    "id": "2e6900e2-0b48-4fb6-ad48-09c7086e54fe",
+    "title": "The Lion King",
+    "year": 1994,
+    "director": "Roger Allers, Rob Minkoff",
+    "duration": 88,
+    "poster": "https://m.media-amazon.com/images/I/81BMmrwSFOL._AC_UF1000,1000_QL80_.jpg",
+    "genre": ["Animation", "Adventure", "Drama"],
+    "rate": 8.5
+  },
+  {
+    "id": "04986507-b3ed-442c-8ae7-4c5df804f896",
+    "title": "The Avengers",
+    "year": 2012,
+    "director": "Joss Whedon",
+    "duration": 143,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rate": 8.0
+  },
+  {
+    "id": "7d2832f8-c70a-410e-8963-4c93bf36cc9c",
+    "title": "Jurassic Park",
+    "year": 1993,
+    "director": "Steven Spielberg",
+    "duration": 127,
+    "poster": "https://vice-press.com/cdn/shop/products/Jurassic-Park-Editions-poster-florey.jpg?v=1654518755&width=1024",
+    "genre": ["Adventure", "Sci-Fi"],
+    "rate": 8.1
+  },
+  {
+    "id": "ccf36f2e-8566-47f7-912d-9f4647250bc7",
+    "title": "Titanic",
+    "year": 1997,
+    "director": "James Cameron",
+    "duration": 195,
+    "poster": "https://i.pinimg.com/originals/42/42/65/4242658e6f1b0d6322a4a93e0383108b.png",
+    "genre": ["Drama", "Romance"],
+    "rate": 7.8
+  },
+  {
+    "id": "8fb17ae1-bdfe-45e5-a871-4772d7e526b8",
+    "title": "The Social Network",
+    "year": 2010,
+    "director": "David Fincher",
+    "duration": 120,
+    "poster": "https://i.pinimg.com/originals/7e/37/b9/7e37b994b613e94cba64f307b1983e39.jpg",
+    "genre": ["Biography", "Drama"],
+    "rate": 7.7
+  },
+  {
+    "id": "6a360a18-c645-4b47-9a7b-2a71babbf3e0",
+    "title": "Avatar",
+    "year": 2009,
+    "director": "James Cameron",
+    "duration": 162,
+    "poster": "https://i.etsystatic.com/35681979/r/il/dfe3ba/3957859451/il_fullxfull.3957859451_h27r.jpg",
+    "genre": ["Action", "Adventure", "Fantasy"],
+    "rate": 7.8
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "title": "The Godfather",
+    "year": 1972,
+    "director": "Francis Ford Coppola",
+    "duration": 175,
+    "poster": "https://i.ebayimg.com/images/g/QV0AAOSwZ~dWbHOt/s-l1600.jpg",
+    "genre": ["Crime", "Drama"],
+    "rate": 9.2
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "title": "Fight Club",
+    "year": 1999,
+    "director": "David Fincher",
+    "duration": 139,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama"],
+    "rate": 8.8
+  },
+  {
+    "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "director": "Peter Jackson",
+    "duration": 178,
+    "poster": "https://i.ebayimg.com/images/g/0hoAAOSwe7peaMLW/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Drama"],
+    "rate": 8.8
+  },
+  {
+    "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+    "title": "Star Wars: Episode V - The Empire Strikes Back",
+    "year": 1980,
+    "director": "Irvin Kershner",
+    "duration": 124,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Fantasy"],
+    "rate": 8.7
+  },
+  {
+    "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+    "title": "The Silence of the Lambs",
+    "year": 1991,
+    "director": "Jonathan Demme",
+    "duration": 118,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Crime", "Drama", "Horror"],
+    "rate": 8.6
+  },
+  {
+    "id": "f6a7b8c9-d0e1-2345-fabc-456789012345",
+    "title": "Saving Private Ryan",
+    "year": 1998,
+    "director": "Steven Spielberg",
+    "duration": 169,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama", "War"],
+    "rate": 8.6
+  },
+  {
+    "id": "a7b8c9d0-e1f2-3456-abcd-567890123456",
+    "title": "Spirited Away",
+    "year": 2001,
+    "director": "Hayao Miyazaki",
+    "duration": 125,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Animation", "Adventure", "Fantasy"],
+    "rate": 8.6
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4567-bcde-678901234567",
+    "title": "The Green Mile",
+    "year": 1999,
+    "director": "Frank Darabont",
+    "duration": 189,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Crime", "Drama", "Fantasy"],
+    "rate": 8.6
+  },
+  {
+    "id": "c9d0e1f2-a3b4-5678-cdef-789012345678",
+    "title": "Life Is Beautiful",
+    "year": 1997,
+    "director": "Roberto Benigni",
+    "duration": 116,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Comedy", "Drama", "War"],
+    "rate": 8.6
+  },
+  {
+    "id": "d0e1f2a3-b4c5-6789-defa-890123456789",
+    "title": "The Prestige",
+    "year": 2006,
+    "director": "Christopher Nolan",
+    "duration": 130,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama", "Mystery", "Sci-Fi"],
+    "rate": 8.5
+  },
+  {
+    "id": "e1f2a3b4-c5d6-7890-efab-901234567890",
+    "title": "The Departed",
+    "year": 2006,
+    "director": "Martin Scorsese",
+    "duration": 151,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Crime", "Drama", "Thriller"],
+    "rate": 8.5
+  },
+  {
+    "id": "f2a3b4c5-d6e7-8901-fabc-012345678901",
+    "title": "Whiplash",
+    "year": 2014,
+    "director": "Damien Chazelle",
+    "duration": 106,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama", "Music"],
+    "rate": 8.5
+  },
+  {
+    "id": "a3b4c5d6-e7f8-9012-abcd-123456789012",
+    "title": "Parasite",
+    "year": 2019,
+    "director": "Bong Joon-ho",
+    "duration": 132,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Comedy", "Drama", "Thriller"],
+    "rate": 8.5
+  },
+  {
+    "id": "b4c5d6e7-f8a9-0123-bcde-234567890123",
+    "title": "The Lion King",
+    "year": 2019,
+    "director": "Jon Favreau",
+    "duration": 118,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Animation", "Adventure", "Drama"],
+    "rate": 6.8
+  },
+  {
+    "id": "c5d6e7f8-a9b0-1234-cdef-345678901234",
+    "title": "Joker",
+    "year": 2019,
+    "director": "Todd Phillips",
+    "duration": 122,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Crime", "Drama", "Thriller"],
+    "rate": 8.4
+  },
+  {
+    "id": "d6e7f8a9-b0c1-2345-defa-456789012345",
+    "title": "The Wolf of Wall Street",
+    "year": 2013,
+    "director": "Martin Scorsese",
+    "duration": 180,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Biography", "Comedy", "Crime"],
+    "rate": 8.2
+  },
+  {
+    "id": "e7f8a9b0-c1d2-3456-efab-567890123456",
+    "title": "Django Unchained",
+    "year": 2012,
+    "director": "Quentin Tarantino",
+    "duration": 165,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama", "Western"],
+    "rate": 8.4
+  },
+  {
+    "id": "f8a9b0c1-d2e3-4567-fabc-678901234567",
+    "title": "Mad Max: Fury Road",
+    "year": 2015,
+    "director": "George Miller",
+    "duration": 120,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rate": 8.1
+  },
+  {
+    "id": "a9b0c1d2-e3f4-5678-abcd-789012345678",
+    "title": "The Revenant",
+    "year": 2015,
+    "director": "Alejandro G. Iñárritu",
+    "duration": 156,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Drama"],
+    "rate": 8.0
+  },
+  {
+    "id": "b0c1d2e3-f4a5-6789-bcde-890123456789",
+    "title": "La La Land",
+    "year": 2016,
+    "director": "Damien Chazelle",
+    "duration": 128,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Comedy", "Drama", "Music"],
+    "rate": 8.0
+  },
+  {
+    "id": "c1d2e3f4-a5b6-7890-cdef-901234567890",
+    "title": "Get Out",
+    "year": 2017,
+    "director": "Jordan Peele",
+    "duration": 104,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Horror", "Mystery", "Thriller"],
+    "rate": 7.7
+  },
+  {
+    "id": "d2e3f4a5-b6c7-8901-defa-012345678901",
+    "title": "The Grand Budapest Hotel",
+    "year": 2014,
+    "director": "Wes Anderson",
+    "duration": 99,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Adventure", "Comedy", "Crime"],
+    "rate": 8.1
+  },
+  {
+    "id": "e3f4a5b6-c7d8-9012-efab-123456789012",
+    "title": "Blade Runner 2049",
+    "year": 2017,
+    "director": "Denis Villeneuve",
+    "duration": 164,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Drama", "Mystery", "Sci-Fi"],
+    "rate": 8.0
+  },
+  {
+    "id": "f4a5b6c7-d8e9-0123-fabc-234567890123",
+    "title": "Dune",
+    "year": 2021,
+    "director": "Denis Villeneuve",
+    "duration": 155,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rate": 8.0
+  },
+  {
+    "id": "a5b6c7d8-e9f0-1234-abcd-345678901234",
+    "title": "Everything Everywhere All at Once",
+    "year": 2022,
+    "director": "Daniel Kwan, Daniel Scheinert",
+    "duration": 139,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Adventure", "Comedy"],
+    "rate": 7.8
+  },
+  {
+    "id": "b6c7d8e9-f0a1-2345-bcde-456789012345",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "director": "Christopher Nolan",
+    "duration": 180,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Biography", "Drama", "History"],
+    "rate": 8.4
+  },
+  {
+    "id": "c7d8e9f0-a1b2-3456-cdef-567890123456",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "year": 2018,
+    "director": "Bob Persichetti, Peter Ramsey, Rodney Rothman",
+    "duration": 117,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Animation", "Action", "Adventure"],
+    "rate": 8.4
+  },
+  {
+    "id": "d8e9f0a1-b2c3-4567-defa-678901234567",
+    "title": "Coco",
+    "year": 2017,
+    "director": "Lee Unkrich, Adrian Molina",
+    "duration": 105,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Animation", "Adventure", "Comedy"],
+    "rate": 8.4
+  },
+  {
+    "id": "e9f0a1b2-c3d4-5678-efab-789012345678",
+    "title": "The Truman Show",
+    "year": 1998,
+    "director": "Peter Weir",
+    "duration": 103,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Comedy", "Drama", "Sci-Fi"],
+    "rate": 8.1
+  },
+  {
+    "id": "f0a1b2c3-d4e5-6789-fabc-890123456789",
+    "title": "The Pianist",
+    "year": 2002,
+    "director": "Roman Polanski",
+    "duration": 150,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Biography", "Drama", "War"],
+    "rate": 8.5
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-901234567890",
+    "title": "Schindler's List",
+    "year": 1993,
+    "director": "Steven Spielberg",
+    "duration": 195,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Biography", "Drama", "History"],
+    "rate": 8.9
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-012345678901",
+    "title": "The Intouchables",
+    "year": 2011,
+    "director": "Olivier Nakache, Éric Toledano",
+    "duration": 112,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Biography", "Comedy", "Drama"],
+    "rate": 8.5
+  },
+  {
+    "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "title": "The Dark Knight Rises",
+    "year": 2012,
+    "director": "Christopher Nolan",
+    "duration": 164,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Action", "Crime", "Drama"],
+    "rate": 8.4
+  },
+  {
+    "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+    "title": "Inglourious Basterds",
+    "year": 2009,
+    "director": "Quentin Tarantino",
+    "duration": 153,
+    "poster": "https://i.ebayimg.com/images/g/7~AAAOSw~k1Z-2Hl/s-l1600.jpg",
+    "genre": ["Adventure", "Drama", "War"],
+    "rate": 8.3
+  }
+]

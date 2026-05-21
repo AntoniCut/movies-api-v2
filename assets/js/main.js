@@ -20,6 +20,62 @@ if (!main)
     throw new Error('Main element not found');
 
 
+/**
+ * @param {string} message
+ */
+const renderErrorState = (message) => {
+    main.innerHTML = `
+        <section class="movies-app">
+            <header class="movies-app__hero">
+                <p class="movies-app__eyebrow">Movies API</p>
+                <h1 class="movies-app__title">No se pudieron cargar las películas</h1>
+                <p class="movies-app__summary">${message}</p>
+                <button class="movies-app__create-btn" type="button">Intentar de nuevo</button>
+            </header>
+        </section>
+    `;
+};
+
+
+/**
+ * @returns {Promise<Movies>}
+ */
+const fetchMovies = async () => {
+
+    const response = await fetch(moviesApiUrl);
+
+    if (!response.ok)
+        throw new Error(`La API respondió con estado ${response.status}`);
+
+    const payload = await response.json();
+
+    if (!Array.isArray(payload))
+        throw new Error('La respuesta de la API no tiene el formato esperado.');
+
+    /** @type {Movies} */
+    const typedPayload = payload;
+
+    return typedPayload;
+};
+
+
+const loadAndRenderMovies = async () => {
+
+    try {
+        const movies = await fetchMovies();
+        renderMovies(movies);
+    }
+
+    catch (error) {
+        const message = error instanceof Error
+            ? error.message
+            : 'Error desconocido al cargar las películas';
+
+        renderErrorState(message);
+    }
+};
+
+
 
 /** 
  * --------------------------------------
@@ -113,6 +169,11 @@ const renderMovieCard = (movie) => {
  */
 
 const renderMovies = (movies) => {
+
+    if (!Array.isArray(movies)) {
+        renderErrorState('La API devolvió un formato inválido para el listado de películas.');
+        return;
+    }
 
     /** @type {import('../../types/movies.js').Movies} - Array de objetos de película a renderizar */
     const typedMovies = movies;
@@ -304,9 +365,7 @@ const openMovieModal = (movie = null) => {
             
             closeModal();
             
-            const moviesResponse = await fetch(moviesApiUrl);
-            const movies = await moviesResponse.json();
-            renderMovies(movies);
+            await loadAndRenderMovies();
             
         } catch (error) {
             if (errorDiv) {
@@ -357,12 +416,24 @@ document.addEventListener('click', e => {
             return;
         
         fetch(`${moviesApiUrl}/${id}`)
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok)
+                    throw new Error('No se pudo obtener la película para editar');
+
+                return res.json();
+            })
             .then(movie => openMovieModal(movie));
     }
     
     //  -----  Botón de crear  -----
     if (target.matches('.movies-app__create-btn')) {
+        const hasErrorState = document.querySelector('.movie-card') === null;
+
+        if (hasErrorState) {
+            loadAndRenderMovies();
+            return;
+        }
+
         openMovieModal();
     }
 });
@@ -381,6 +452,4 @@ document.addEventListener('keydown', e => {
 
 
 //  -----  Obtener las películas de la API y renderizarlas  -----
-fetch(moviesApiUrl)
-    .then(res => res.json())
-    .then(renderMovies)
+loadAndRenderMovies();
