@@ -25,17 +25,22 @@ import { corsMiddleware } from './middlewares/cors.js';
 /** -----  create express app  ----- */
 const app = express();
 
+//  -----  Deshabilitar el encabezado 'X-Powered-By' para mejorar la seguridad  -----
+app.disable('x-powered-by');
+
 /** -----  __dirname equivalente en ESM  ----- */
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
-/** -----  configure CORS  ----- */
+
+/*
+    *  -------------------------
+    *  -----  Middlewares  -----
+    *  ------------------------- 
+*/
+
+//  -----  configure CORS  ----- 
 app.use(corsMiddleware());
-
-
-
-//  -----  Deshabilitar el encabezado 'X-Powered-By' para mejorar la seguridad  -----
-app.disable('x-powered-by');
 
 //  -----  Middleware para parsear el cuerpo de las solicitudes como JSON  -----
 app.use(express.json());

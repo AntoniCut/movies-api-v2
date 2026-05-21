@@ -1,7 +1,7 @@
 /*
-    *  ----------------------------------------------  *
-    *  -----  movies.js  --  /models/movies.js  -----  *
-    *  ----------------------------------------------  *
+    *  ----------------------------------------------------------------  *
+    *  -----  movies.js  --  /models/local-file-system/movies.js  -----  *
+    *  ----------------------------------------------------------------  *
 */
 
 
@@ -12,11 +12,19 @@ import { randomUUID } from 'node:crypto';
 import { createRequire } from 'node:module';
 
 
-/** -----  require para importar JSON  ----- */
+/** -----  función creada con createRequire() para importar JSON en ESM  ----- */
 const require = createRequire(import.meta.url);
 
-/** @type {import('../types/movies.js').Movies} - colección de peliculas */
-const movies = require('../movies.json');
+
+/**
+ * --------------------- 
+ * -----  `movies` -----
+ * --------------------
+ * - `colección de peliculas` almacenada en un archivo JSON.
+ * @type {import('../../types/movies.js').Movies} 
+ */
+
+const movies = require('../../movies.json');
 
 
 
@@ -25,14 +33,14 @@ const movies = require('../movies.json');
  * --------------------------------
  * -----  class `MovieModel`  -----
  * --------------------------------
- * @class
+ * `@class`
  * - Modelo para interactuar con la colección de películas almacenada en movies.json.
  * - Proporciona métodos para obtener, crear, actualizar y eliminar películas.
- * @method getAll
- * @method getById
- * @method create
- * @method update
- * @method delete
+ * @method getAll - Devuelve todas las películas, con opción de filtrar por género.
+ * @method getById - Devuelve una película por su id.
+ * @method create - Crea una nueva película con los datos proporcionados.
+ * @method update - Actualiza una película existente por su id con los datos proporcionados.
+ * @method delete - Elimina una película por su id.
  */
 
 export class MovieModel {
@@ -45,8 +53,9 @@ export class MovieModel {
      * - Devuelve todas las películas almacenadas en movies.json.
      * - Si se proporciona un género, filtra las películas por ese género (case-insensitive).
      * @param {{ genre?: string }} params
-     * @returns {Promise<import('../types/movies.js').Movies>}
+     * @returns {Promise<import('../../types/movies.js').Movies>}
      */
+    
     static async getAll({ genre }) {
 
         if (genre) {
@@ -63,17 +72,19 @@ export class MovieModel {
 
 
     /**
-     * ---------------------------
+     * -------------------------
      * -----  `getById()`  -----
-     * ---------------------------
+     * -------------------------
      * - Devuelve la película con el id especificado.
      * @param {{ id: string }} params
-     * @returns {Promise<import('../types/movies.js').Movie | null>}
+     * @returns {Promise<import('../../types/movies.js').Movie | null>}
      */
 
     static async getById({ id }) {
 
+        /** -----  Buscar película por id  ----- */
         const movie = movies.find(movie => movie.id === id);
+        
         return movie || null;
 
     }
@@ -85,17 +96,18 @@ export class MovieModel {
      * -----  `create()`  -----
      * ------------------------
      * - Crea una nueva película con los datos proporcionados y la guarda en movies.json.
-     * @param {import('../types/movies.js').MovieInput} input 
+     * @param {import('../../types/movies.js').MovieInput} input 
      */
 
     static async create(input) {
 
-        /** @type {import('../types/movies.js').Movie} */
+        /** @type {import('../../types/movies.js').Movie} */
         const newMovie = {
             id: randomUUID(), // uuid v4
             ...input
         };
        
+        //  -----  Agregar nueva película a la colección -----
         movies.push(newMovie);
 
         return newMovie;
@@ -108,17 +120,19 @@ export class MovieModel {
      * -----  `update()`  -----
      * ------------------------
      * - Actualiza una película existente por su id con los datos proporcionados.
-     * @param {{ id: string, input: Partial<import('../types/movies.js').MovieInput> }} params
-     * @returns {Promise<import('../types/movies.js').Movie | null>} - Devuelve la película actualizada o null si no se encontró.
+     * @param {{ id: string, input: Partial<import('../../types/movies.js').MovieInput> }} params
+     * @returns {Promise<import('../../types/movies.js').Movie | null>} - Devuelve la película actualizada o null si no se encontró.
      */
     
     static async update({ id, input }) {
 
+        /** -----  Buscar película por id y actualizarla  ----- */
         const movieIndex = movies.findIndex(movie => movie.id === id);
 
         if (movieIndex === -1)
             return null;
 
+        /** @type {import('../../types/movies.js').Movie} */
         const updatedMovie = {
             ...movies[movieIndex],
             ...input

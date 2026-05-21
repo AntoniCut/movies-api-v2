@@ -5,7 +5,8 @@
 */
 
 
-import cors from 'cors'; // middleware para habilitar CORS
+//  -----  middleware para habilitar CORS  -----
+import cors from 'cors'; 
 
 
 /**
@@ -87,4 +88,4 @@ export const corsMiddleware = (
         return callback(new Error(`Not allowed by CORS: ${origin}`))
     }
 
-})
+});
